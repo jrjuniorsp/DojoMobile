@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport"
+            content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Your Application Name</title>
+    <link href="//ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojox/mobile/themes/iphone/iphone.css"
+            rel="stylesheet"></link>
+    </head>
+    <body>
+		<div id="view"></div>
+		<div id="wifiScreen"></div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js" data-dojo-config="async:true"></script>
+    	<script type="text/javascript">
+    	require(["dojox/mobile/deviceTheme", "dojox/mobile/compat", "dojox/mobile"],
+    	    function(deviceTheme) {
+    	 		var application = new dojox.mobile.View({id: 'view', selected: 'true'},"view");
+    	 		//Settings
+    	 		var settings = new dojox.mobile.Heading({label: 'Settings'});    	 		
+    	 		application.addChild(settings);
+    	 		//Listview
+    	 		var list = new dojox.mobile.RoundRectList();
+    	 		var airPlane = new dojox.mobile.ListItem({label: 'Air Plane'});
+    	 		airPlane.addChild(new dojox.mobile.Switch());
+    	 		
+    	 		var wiFi = new dojox.mobile.ListItem({label: 'Wi-Fi', moveTo: 'wifiScreen'});
+    	 		
+    	 		
+    	 		var carrier = new dojox.mobile.ListItem({label: 'Carrier'});
+    	 		list.addChild(airPlane);
+    	 		list.addChild(wiFi);
+    	 		list.addChild(carrier);
+    	 		
+    	 		application.addChild(list);
+    	 		
+    	 		
+    	 		var wifiScreen = new dojox.mobile.View({id: 'wifiScreen'}, "wifiScreen");
+    	 		var general = new dojox.mobile.Heading({label: 'General', back: 'Settings', moveTo: 'view'});
+    	 		wifiScreen.addChild(general);
+    	 		
+    	 		application.startup();
+    	    }
+    	);
+    	
+    	</script>
+    </body>
+</html>

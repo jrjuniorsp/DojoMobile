@@ -21,7 +21,7 @@
     	 		var settings = new dojox.mobile.Heading({label: 'Settings'});    	 		
     	 		application.addChild(settings);
     	 		//Listview
-    	 		var list = new dojox.mobile.RoundRectList();
+    	 		var list = new dojox.mobile.EdgeToEdgeList();
     	 		var airPlane = new dojox.mobile.ListItem({label: 'Air Plane'});
     	 		airPlane.addChild(new dojox.mobile.Switch());
     	 		
@@ -29,6 +29,7 @@
     	 		
     	 		
     	 		var carrier = new dojox.mobile.ListItem({label: 'Carrier'});
+    	 		
     	 		list.addChild(airPlane);
     	 		list.addChild(wiFi);
     	 		list.addChild(carrier);
